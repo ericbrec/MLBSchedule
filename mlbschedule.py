@@ -74,7 +74,7 @@ with urllib.request.urlopen(mlbScheduleUrl) as urlStream:
     
     with open('MLBSchedule.csv', 'w', encoding='UTF8', newline='') as file:
         writer = csv.writer(file, dialect='excel')
-        writer.writerow(['UTC', 'Date', 'Local', 'Away', 'Home', 'Venue', 'TZ', 'Description'])
+        writer.writerow(['Date', 'Time', 'Away', 'Home', 'Venue', 'TZ', 'Description'])
         for date in dates:
             for game in date['games']:
                 teams = game['teams']
@@ -82,4 +82,4 @@ with urllib.request.urlopen(mlbScheduleUrl) as urlStream:
                 timeZoneLocal = pytz.timezone(venueTimeZones[venue])
                 dateTimeUTC = datetime.fromisoformat(game['gameDate'][:-1] + '+00:00')
                 dateTimeLocal = dateTimeUTC.astimezone(timeZoneLocal)
-                writer.writerow([dateTimeUTC.isoformat(), dateTimeLocal.date(), dateTimeLocal.time().strftime("%I:%M %p"), teams['away']['team']['name'], teams['home']['team']['name'], venue, timeZoneLocal, game['seriesDescription']])
+                writer.writerow([dateTimeLocal.date(), dateTimeLocal.time().strftime("%I:%M %p"), teams['away']['team']['name'], teams['home']['team']['name'], venue, timeZoneLocal, game['seriesDescription']])

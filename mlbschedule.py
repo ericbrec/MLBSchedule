@@ -4,7 +4,7 @@ import csv
 from datetime import datetime, timezone
 import pytz
 
-year = 2024
+year = 2025
 mlbScheduleUrl = f"https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&startDate={year}-01-01&endDate={year}-12-31"
 
 venueTimeZones = {
@@ -12,7 +12,9 @@ venueTimeZones = {
     "American Family Fields of Phoenix": 'US/Arizona',
     "Angel Stadium": 'US/Pacific',
     "Arvest Ballpark": 'US/Central',
+    "AutoZone Park": 'US/Central',
     "BayCare Ballpark": 'US/Eastern',
+    "Bristol Motor Speedway": 'US/Eastern',
     "Busch Stadium": 'US/Central',
     "CACTI Park of the Palm Beaches": 'US/Eastern',
     "Camelback Ranch": 'US/Arizona',
@@ -71,6 +73,7 @@ venueTimeZones = {
     "The Ballpark of the Palm Beaches": 'US/Eastern',
     "The Stadium at the ESPN Wide World of Sports": 'US/Eastern',
     "T-Mobile Park": 'US/Pacific',
+    "Tokyo Dome": 'Asia/Tokyo',
     "Tropicana Field": 'US/Eastern',
     "Truist Park": 'US/Eastern',
     "Wrigley Field": 'US/Central',
